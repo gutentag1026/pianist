@@ -1,7 +1,8 @@
 import React from "react";
 import { Button } from "@nextui-org/react";
 import styles from './page.module.css';
-const biography = ["Talented pianist, Wendy performs in various occasions, such as luxury hotels(Shangrila West, St. Regis, The Longemont Shanghai), \
+
+    const biography = ["Talented pianist, Wendy performs in various occasions, such as luxury hotels(Shangrila West, St. Regis, The Longemont Shanghai), \
     Residence of Consul General at the  Austrian Consulate General in Shanghai, Flower Expo in Chongming Island, Peace Lutheran in San Jose and many others.","A full-fleged pianist, as much in her broad repertoires as in her personal way of \
     presenting the works of Chopin with genuinely poetic touch and the works of romantic period artist with deeply expressive intepretation and baroque with logic and energetic spirit."]
 
@@ -25,7 +26,6 @@ export default async function Bio() {
     
     return ( 
     <div className={styles["bio"]}>
-
     {data.map(bio => {return <p>{bio}</p>})}
     </div>
   );

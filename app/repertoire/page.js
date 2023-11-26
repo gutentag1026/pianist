@@ -1,7 +1,11 @@
 import React from "react"
+import { MongoClient } from "mongodb";
+// import { run } from "../db/database"
 import parse from 'html-react-parser'
 import styles from '../biography/page.module.css'
-export const repertoires = 
+import { BulkWriteResult } from "mongodb";
+
+const repertoires = 
     {
         "Frédéric Chopin":
                             {
@@ -25,7 +29,7 @@ export const repertoires =
                             }
     }
 
-    const generateTemplate = (repertoires) => {
+const generateTemplate = (repertoires) => {
     let templates = `<div className={${styles["bio"]}}>`
     for (const [composer, repo] of Object.entries(repertoires)) {
         //console.log('composer',composer, 'repo',repo)
@@ -49,15 +53,40 @@ export const repertoires =
     templates += `</div>`
     return templates
 }
+
 async function getData(){
     return repertoires
 }
-export default async function repertoire() {
-    const repertoires = await getData()
-    console.log('repertoires',repertoires)
 
-    // const repoKeys = Object.keys(repertoires[0])
-    // console.log('repoKeys',repoKeys)
-    const template = generateTemplate(repertoires)
-    return parse(template)
+async function getRepertoires() {
+    
+  const client = new MongoClient("mongodb+srv://huanghuang5087:jA34ChhD8TShRNDF@cluster0.pjerkr2.mongodb.net/?retryWrites=true&w=majority");
+  try {
+
+    // Get the database and collection on which to run the operation
+    const database = client.db("pianist");
+    const repertoire = database.collection("repertoires");
+    //console.log(repertoire)
+    const cursor = repertoire.find()
+   // iterate code goes here
+    await cursor.forEach(console.log);
+    // Create an array of documents to insert
+    // const doc = repertoires
+
+    // // Execute insert operation
+    // const result = await repertoire.insertOne(doc)
+   
+    // // Print result
+    // console.log(`${result.insertedCount} documents were inserted`);
+  }
+  catch(e){
+    console.log(e) 
+  }
+}
+
+export default async function repertoire() {
+    const repertoires = await getRepertoires()
+    // insertRepertoires().catch(console.dir)
+    //const template = generateTemplate(repertoires)
+   // return parse(template)
 }

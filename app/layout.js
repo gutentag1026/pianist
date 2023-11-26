@@ -1,11 +1,10 @@
 import React from "react";
-import { Inter } from 'next/font/google'
+import { Providers } from "./providers";
+//import { Inter } from 'next/font/google'
 import { Links } from './components/links'
-import { Providers } from "./providers"
-import {  Button } from "@nextui-org/react"
 import './styles/globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Wendy Huang | Pianist',
@@ -15,15 +14,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
       <div className="relative"> 
           <div className="fixed top-100 left-10">
             <Links />
           </div>
       </div>
-      <Providers>
-				{children}	
-			</Providers>
+				<Providers>{children}</Providers>
       </body>
     </html>
   )

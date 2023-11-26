@@ -1,13 +1,11 @@
 import * as React from "react"
 import Image from 'next/image'
-import { Button } from "@nextui-org/react";
 import styles from './page.module.css'
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
-      <Button color="primary">Open</Button>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>app/page.js</code>
