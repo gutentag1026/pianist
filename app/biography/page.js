@@ -23,7 +23,7 @@ import styles from './page.module.css';
 
 export default async function Bio() {
     const data = await getData()
-    
+    console.log('bio',process.browser ? 'client' : 'server')
     return ( 
     <div className={styles["bio"]}>
     {data.map(bio => {return <p>{bio}</p>})}
