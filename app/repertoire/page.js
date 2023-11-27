@@ -3,6 +3,7 @@ import { MongoClient } from "mongodb";
 // import { run } from "../db/database"
 import parse from 'html-react-parser'
 import styles from '../biography/page.module.css'
+import { CLIENT_STATIC_FILES_RUNTIME_WEBPACK } from "next/dist/shared/lib/constants";
 
 const repertoires = 
     {
@@ -68,7 +69,8 @@ async function getRepertoires() {
     //console.log(repertoire)
     const cursor = repertoire.find()
    // iterate code goes here
-    await cursor.forEach(console.log);
+    const res = await cursor.toArray();
+    return res[0]
     // Create an array of documents to insert
     // const doc = repertoires
 
@@ -85,8 +87,8 @@ async function getRepertoires() {
 
 export default async function repertoire() {
     //const repertoires = await getRepertoires()
-    const repertoires = await getData()
+    const repertoires = await getRepertoires()
     // insertRepertoires().catch(console.dir)
-    const template = generateTemplate(repertoires)
+    const template = generateTemplate({'Frédéric Chopin': repertoires['Frédéric Chopin']})
     return parse(template)
 }
