@@ -3,7 +3,6 @@ import { MongoClient } from "mongodb";
 // import { run } from "../db/database"
 import parse from 'html-react-parser'
 import styles from '../biography/page.module.css'
-import { BulkWriteResult } from "mongodb";
 
 const repertoires = 
     {
@@ -85,8 +84,9 @@ async function getRepertoires() {
 }
 
 export default async function repertoire() {
-    const repertoires = await getRepertoires()
+    //const repertoires = await getRepertoires()
+    const repertoires = await getData()
     // insertRepertoires().catch(console.dir)
-    //const template = generateTemplate(repertoires)
-   // return parse(template)
+    const template = generateTemplate(repertoires)
+    return parse(template)
 }

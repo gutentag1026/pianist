@@ -1,14 +1,8 @@
+// app/providers.tsx
 'use client'
 
-import {NextUIProvider} from '@nextui-org/react';
-import {useRouter} from 'next/navigation'
-
-export function Providers({children}) {
-  const router = useRouter();
-
+export function Providers({ children }) {
   return (
-    <NextUIProvider navigate={router.push}>
-      {children}
-    </NextUIProvider>
+<>w</>
   )
 }

@@ -1,8 +1,7 @@
 import React from "react";
-import { Providers } from "./providers";
 //import { Inter } from 'next/font/google'
 import { Links } from './components/links'
-import './styles/globals.css'
+import './globals.css'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -15,12 +14,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-      <div className="relative"> 
-          <div className="fixed top-100 left-10">
-            <Links />
-          </div>
-      </div>
-				<Providers>{children}</Providers>
+        <Links />
+ 
+        {children}
+
       </body>
     </html>
   )

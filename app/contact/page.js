@@ -1,6 +1,5 @@
 //import {connectToDataBase}  from "../db/database"
 
-
 export const GET = async (request) => { 
     try {
     //  await connectToDataBase();    
@@ -11,5 +10,5 @@ export const GET = async (request) => {
 }
 
 export default function Contact() {
-   return <h1>Contact</h1>
+   return <>123</>
 }

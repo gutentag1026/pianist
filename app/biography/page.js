@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "@nextui-org/react";
 import styles from './page.module.css';
 
     const biography = ["Talented pianist, Wendy performs in various occasions, such as luxury hotels(Shangrila West, St. Regis, The Longemont Shanghai), \
