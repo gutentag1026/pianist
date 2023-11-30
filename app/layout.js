@@ -1,6 +1,7 @@
 import React from "react";
 //import { Inter } from 'next/font/google'
-import { Links } from './components/links'
+// import { Links } from './components/links'
+import Headers from './components/Headers'
 import './globals.css'
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -14,8 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Links />
- 
+       <Headers />
         {children}
 
       </body>

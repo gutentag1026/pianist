@@ -1,5 +1,3 @@
-//import {connectToDataBase}  from "../db/database"
-
 export const GET = async (request) => { 
     try {
     //  await connectToDataBase();    
@@ -10,5 +8,15 @@ export const GET = async (request) => {
 }
 
 export default function Contact() {
-   return <>123</>
-}
+   return <>contact</>}
+   {/* <style jsx>{`
+               .button {
+               padding: 1em;
+               border-radius: 1em;
+               border: none;
+               background: green;
+               color: white;
+               }
+             `}
+   </style></>
+}  */}

@@ -1,6 +1,8 @@
-import * as React from "react"
+// import * as React from "react"
+//'use client'
 import DisplayImage from './components/Image'
-import Image from 'next/image'
+import DisplayVideo from './components/Video'
+// import Image from 'next/image'
 import styles from './page.module.css'
 
 export default function Home() {
@@ -10,9 +12,14 @@ export default function Home() {
       <div className={styles.desc}>
         <DisplayImage className={styles.pic} src="/img/Yulan Huang.jpg" fill={true} priority={true} />
       </div>
-      <div className={styles.desc}></div>
-      <div className={styles.desc}></div>
+      <div className={styles.desc}>
+        <DisplayVideo src="/video/pianist_yulhuang_resized.mp4" />
+      </div>
+      <div className={styles.desc}>
+        <DisplayImage className={styles.pic} src="/img/programs.png" fill={true} priority={true} />
+      </div>
       <div className={styles.desc}></div>
     </div>
   )
 }
+

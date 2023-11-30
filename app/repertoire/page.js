@@ -3,7 +3,6 @@ import { MongoClient } from "mongodb";
 // import { run } from "../db/database"
 import parse from 'html-react-parser'
 import styles from '../biography/page.module.css'
-import { CLIENT_STATIC_FILES_RUNTIME_WEBPACK } from "next/dist/shared/lib/constants";
 
 const repertoires = 
     {
@@ -86,9 +85,9 @@ async function getRepertoires() {
 }
 
 export default async function repertoire() {
-    //const repertoires = await getRepertoires()
-    const repertoires = await getRepertoires()
+    // const repertoires = await getRepertoires()
     // insertRepertoires().catch(console.dir)
-    const template = generateTemplate({'Frédéric Chopin': repertoires['Frédéric Chopin']})
+    // const template = generateTemplate({'Frédéric Chopin': repertoires['Frédéric Chopin']})
+    const template = generateTemplate(repertoires)
     return parse(template)
 }
