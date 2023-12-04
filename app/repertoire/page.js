@@ -2,16 +2,15 @@ import React from "react"
 import { MongoClient } from "mongodb";
 // import { run } from "../db/database"
 import parse from 'html-react-parser'
-import MarkerList from './list'
 import AccordionFilter from './accordion'
 import styles from '../biography/page.module.css'
 
-const repertoires = 
+export const repertoires = 
     {
-        "Frédéric Chopin:Frédéric François Chopin was a Polish composer and virtuoso pianist of the Romantic period, who wrote primarily for solo piano. He has maintained worldwide renown as a leading musician of his era, one whose \"poetic genius was based on a professional technique that was without equal in his generation\". ":
+        "Frédéric Chopin: Ballades, Nocturnes, Waltzes":
                             {
                                     "Ballades": [
-                                            {"Op. 23": ["Ballade No. 1 in G minor (composed 1835–36) 09:12"]}
+                                            {"Op. 23": ["Ballade No. 1 in G minor (composed 1835–36)"]}
                                     ], 
                                     "Nocturnes": [
                                             {"Op. 9 (1830–32):": [ "Nocturne in B♭ minor", "Nocturne in E♭ major"]}, 
@@ -28,7 +27,7 @@ const repertoires =
 
                                     ]
                             },
-        "Ludwig van Beethoven:Ludwig van Beethoven was a German composer and pianist. Beethoven remains one of the most admired composers in the history of Western music; his works rank among the most performed of the classical music repertoire and span the transition from the Classical period to the Romantic era in classical music.":
+        "Ludwig van Beethoven: Sonatas":
                             {
                                     "Piano sonatas": [
                                         { "Op.13": ["No.8 'Pathétique' in C minor"] },
@@ -38,23 +37,30 @@ const repertoires =
                                         {"WoO 59, Bia 515":[" Bagatelle No. 25 'Für Elise' in A minor"]}
                                     ]
                             },
-        "Wolfgang Amadeus Mozart:Wolfgang Amadeus Mozart was a prolific and influential composer of the Classical period. Despite his short life, his rapid pace of composition resulted in more than 800 works of virtually every genre of his time.":
+        "Wolfgang Amadeus Mozart: Sonatas":
                             {
                                     "Piano sonatas": [
                                         { "K. 545": ["No.16 in C major"] },
                                         { "K. 331 / 300i": ["No.11 in A major, Alla turca"]}
                                     ]
                             },
-        "Claude Debussy:Claude Debussy was a French composer. He is sometimes seen as the first Impressionist composer, although he vigorously rejected the term. He was among the most influential composers of the late 19th and early 20th centuries.":
+        "Claude Debussy: Suite bergamasque":
                             {
                                     "Suite bergamasque":[
                                         {"L. 75": ["No.3 Clair de lune"]}
                                     ]
                             },
-        "Johann Sebastian Bach:Johann Sebastian Bach was a German composer and musician of the late Baroque period. He is known for his orchestral music such as the Brandenburg Concertos; instrumental compositions such as the Cello Suites; keyboard works such as the Goldberg Variations and The Well-Tempered Clavier; organ works such as the Schubler Chorales and the Toccata and Fugue in D minor; and vocal music such as the St Matthew Passion and the Mass in B minor. Since the 19th-century Bach revival, he has been generally regarded as one of the greatest composers in the history of Western music.":
+        "Johann Sebastian Bach: Goldberg Variations, The Well-Tempered Clavier":
                             {
                                 "Goldberg Variations":[
                                     {"BWV 988": ["Aria","Variatio 1. a 1 Clav.","Variatio 2. a 1 Clav.","Variatio 3. Canone all'Unisono. a 1 Clav.","Variatio 4. a 1 Clav.","Variatio 5. a 1 ô vero 2 Clav.","Variatio 6. Canone alla Seconda. a 1 Clav.","Variatio 7. a 1 ô vero 2 Clav. al tempo di Giga","Variatio 8. a 2 Clav.","Variatio 9. Canone alla Terza. a 1 Clav.","Variatio 10. Fughetta. a 1 Clav."]}
+                                ],
+                                "The Well-Tempered Clavier":[{"BWV 846": ["No. 1: Prelude and Fugue in C major"]}]
+                            },
+        "Pyotr Ilyich Tchaikovsky: The Seasons":
+                            {
+                                "The Seasons":[
+                                    {"Op. 37a (or 37b)": ["June: Barcarolle"]}
                                 ]
                             }
     }
@@ -91,7 +97,6 @@ async function getData(){
 async function getRepertoires() {
   const client = new MongoClient("mongodb+srv://huanghuang5087:jA34ChhD8TShRNDF@cluster0.pjerkr2.mongodb.net/?retryWrites=true&w=majority");
   try {
-
     // Get the database and collection on which to run the operation
     const database = client.db("pianist");
     const repertoire = database.collection("repertoires");
@@ -119,8 +124,5 @@ export default async function repertoire() {
     // insertRepertoires().catch(console.dir)
     // const template = generateTemplate({'Frédéric Chopin': repertoires['Frédéric Chopin']})
     // const template = generateTemplate(repertoires)
-    return <>
-    <AccordionFilter repertoires={repertoires}/>
-    {/* <MarkerList repertoires={repertoires} /> */}
-    </>
+    return <AccordionFilter repertoires={repertoires}/>
 }

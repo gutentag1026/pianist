@@ -1,4 +1,0 @@
-
-var maxDepth = function(root){
-    
-}

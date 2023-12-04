@@ -20,7 +20,7 @@ import List from '@mui/joy/List';
 import ListItem from '@mui/joy/ListItem';
 
 export default function AccordionFilter({repertoires}) {
-  const [index, setIndex] = React.useState(2);
+  const [index, setIndex] = React.useState(0);
     const composer = Object.keys(repertoires)
   return composer.map((c,i) => {
     const artist = c.split(':')[0]
@@ -28,11 +28,12 @@ export default function AccordionFilter({repertoires}) {
         return  <CssVarsProvider defaultMode="dark">
           <AccordionGroup
             variant="plain"  
-            transition={{
-              expanded: "0.2s ease",
-            }}    
+            // transition={{
+            //   expanded: "0.2s ease",
+            // }}    
             sx={{
-        // maxWidth: 400,
+            maxWidth: 800,
+            margin:'0 auto',
             borderRadius: 'md',
             [`& .${accordionDetailsClasses.content}.${accordionDetailsClasses.expanded}`]:
               {
@@ -44,15 +45,13 @@ export default function AccordionFilter({repertoires}) {
           }}
     >
       <Accordion  
-        expanded={i % 2 !== 0}
+        expanded={index === i}
         onChange={(event, expanded) => {
           setIndex(expanded ? i : null);
         }}
         >
         <AccordionSummary>
-          <Avatar color="primary">
-     {i}
-          </Avatar>
+        <Avatar alt={artist} src={`/composer/${artist}.jpeg`} size="lg" />
           <ListItemContent>
             <Typography level="title-md">{artist}</Typography>
             <Typography level="body-sm">
@@ -72,8 +71,7 @@ export default function AccordionFilter({repertoires}) {
               <Switch size="sm" />
             </FormControl> */}
      { 
-                Object.keys(repertoires[c]).map(genre => {
-                
+                Object.keys(repertoires[c]).map(genre => {            
                     return <List key={genre}>{genre}
                     {
                       repertoires[c][genre].map(work => {
