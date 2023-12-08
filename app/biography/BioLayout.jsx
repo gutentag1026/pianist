@@ -1,7 +1,6 @@
 'use client'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-
 const darkTheme = createTheme({
     palette: {
       mode: 'dark',
@@ -11,7 +10,7 @@ const darkTheme = createTheme({
   
 export const BioLayout = ({bio}) => {
     return  <ThemeProvider theme={darkTheme}>
-                <Box
+             <Box
                     sx={{     
                         bgcolor: 'rgba(0,0,0,0)',
                         color: 'text.secondary',

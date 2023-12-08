@@ -1,10 +1,9 @@
-// import * as React from "react"
+import * as React from "react"
 //'use client'
 import DisplayImage from './components/Image'
 import DisplayVideo from './components/Video'
 // import Image from 'next/image'
 import styles from './page.module.css'
-
 export default function Home() {
   //console.log('process',process.browser ? 'client' : 'server','MONGODB_URI',process.env.MONGODB_URI)
   return (

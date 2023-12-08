@@ -16,28 +16,15 @@ export default function Contact() {
   <Card variant="plain">
       <CardContent>
         <Typography level="title-md">Email:</Typography>
-        <Typography>huanghuang5087@hotmail.com</Typography>
-      </CardContent>
-  </Card>
- </Grid>
- <Grid xs={7}>
-  <Card variant="plain">
-      <CardContent>
+        <Typography>huanghuang5087@hotmail.com</Typography><br /><br /><br />
         <Typography level="title-md">Github:</Typography>
-        <Typography>https://github.com/gutentag1026</Typography>
+        <Typography>https://github.com/gutentag1026</Typography><br /><br /><br />
+        <Typography level="title-md">Social media:</Typography>     <br />  
+        <AspectRatio ratio="1" sx={{width:150}}><DisplayImage src='/contact/qr.png' fill={true} priority={true} /></AspectRatio>
       </CardContent>
   </Card>
  </Grid>
- <Grid xs={7}>
-  <Card variant="plain">
-      <CardContent>
-        <Typography level="title-md">Social media:</Typography>       
-      </CardContent>
-      <AspectRatio ratio="1" variant="plain" sx={{width:300}}><DisplayImage src='/contact/qr.png' fill={true} priority={true} /></AspectRatio>
 
- 
 
-  </Card>
- </Grid>
  </Grid></CssVarsProvider>
 }

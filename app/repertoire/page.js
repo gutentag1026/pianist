@@ -1,8 +1,10 @@
 import React from "react"
 import { MongoClient } from "mongodb";
 // import { run } from "../db/database"
-import parse from 'html-react-parser'
 import AccordionFilter from './accordion'
+import List from './list'
+import Grid from '@mui/joy/Grid'
+import Box from '@mui/material/Box'
 import styles from '../biography/page.module.css'
 
 export const repertoires = 
@@ -10,12 +12,12 @@ export const repertoires =
         "Frédéric Chopin: Ballades, Nocturnes, Waltzes":
                             {
                                     "Ballades": [
-                                            {"Op. 23": ["Ballade No. 1 in G minor (composed 1835–36)"]}
+                                            {"Op. 23": ["Ballade No. 1 in G minor (composed 1835–36):(09:30)"]}
                                     ], 
                                     "Nocturnes": [
-                                            {"Op. 9 (1830–32):": [ "Nocturne in B♭ minor", "Nocturne in E♭ major"]}, 
-                                            {"Op. 55 (1843–44):": ["Nocturne in F minor"]},
-                                            {"Op. posth. (1830):": [ "Nocturne in C♯ minor"]}, 
+                                            {"Op. 9 (1830–32):": [ "Nocturne in B♭ minor:(05:45)", "Nocturne in E♭ major:(05:30)"]}, 
+                                            {"Op. 55 (1843–44):": ["Nocturne in F minor:(04:53)"]},
+                                            {"Op. posth. (1830):": [ "Nocturne in C♯ minor:(05:14)"]}, 
                                     ],
                                     "Waltzes": [
                                         {"Op. 34, Trois grandes valses brillantes:": ["Waltz in A♭ major (1835)", "Waltz in A minor (1831)", "Waltz in F major (1838)"]},
@@ -124,5 +126,12 @@ export default async function repertoire() {
     // insertRepertoires().catch(console.dir)
     // const template = generateTemplate({'Frédéric Chopin': repertoires['Frédéric Chopin']})
     // const template = generateTemplate(repertoires)
-    return <AccordionFilter repertoires={repertoires}/>
+    return <Grid container spacing={2}>
+            <Grid item xs={6}>
+                <AccordionFilter repertoires={repertoires}/>
+            </Grid>
+            <Grid item xs={6}>
+            <List />
+            </Grid>
+          </Grid>
 }

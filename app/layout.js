@@ -1,8 +1,6 @@
-import React from "react";
-
-//import { Inter } from 'next/font/google'
-// import { Links } from './components/links'
+import React from "react"
 import Headers from './components/Headers'
+import Provider from './Provider'
 // import ClientLayout from './ClientLayout'
 import './globals.css'
 
@@ -16,9 +14,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
       <body>
+      <Provider>
        <Headers />
         {children}
+        </Provider>
       </body>
     </html>
   )

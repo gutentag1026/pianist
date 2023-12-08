@@ -1,0 +1,31 @@
+import { createSlice } from "@reduxjs/toolkit";
+import { AppState } from "./store";
+import { HYDRATE } from "next-redux-wrapper";
+
+// Actual Slice
+export const programSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    // Action to set the authentication status
+    setAuthState(state, action) {
+      state.authState = action.payload;
+    },
+  },
+
+  // Special reducer for hydrating the state. Special case for next-redux-wrapper
+  extraReducers: {
+    [HYDRATE]: (state, action) => {
+      return {
+        ...state,
+        ...action.payload.auth,
+      };
+    },
+  },
+});
+
+export const { setAuthState } = authSlice.actions;
+
+export const selectAuthState = (state: AppState) => state.auth.authState;
+
+export default authSlice.reducer;
